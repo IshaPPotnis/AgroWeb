@@ -11,11 +11,11 @@ public class GetData {
 
             System.out.println("Connected to PostgreSQL database!");
             Statement statement = connection.createStatement();
-            System.out.println("Reading car records...");
-            System.out.printf("%-30.30s  %-30.30s%n", "Model", "Price");
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM public.cars");
+            System.out.println("Reading records...");
+            System.out.printf("%-30.30s  %-30.30s%n", "EmpId", "Name");
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM employee.employee_details");
             while (resultSet.next()) {
-                System.out.printf("%-30.30s  %-30.30s%n", resultSet.getString("model"), resultSet.getString("price"));
+                System.out.printf("%-30.30s  %-30.30s%n", resultSet.getString("emp_id"), resultSet.getString("name"));
             }
 
         } catch (ClassNotFoundException e) {
